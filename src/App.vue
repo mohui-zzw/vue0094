@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app-container">
-    <mt-header fixed title="固定在顶部"></mt-header>
+    <mt-header fixed title="苏宁易购"></mt-header>
 	<transition>
 		<router-view/>
 	</transition>
@@ -36,6 +36,7 @@ export default {
 .app-container{
   padding-top: 40px;
   overflow-x: hidden;
+  padding-bottom: 50px;
 }
 .v-enter{
 	opacity: 0;
