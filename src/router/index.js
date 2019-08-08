@@ -9,6 +9,8 @@ import SearchContainer from '@/components/tabbar/SearchContainer'
 import ShopcarContainer from '@/components/tabbar/ShopcarContainer'
 import NewsList from '@/components/news/NewsList'
 import NewsInfo from '@/components/news/NewsInfo'
+import PhotoList from '@/components/photos/PhotoList'
+import PhotoInfo from '@/components/photos/PhotoInfo'
 
 export default new Router({
   routes: [
@@ -45,6 +47,16 @@ export default new Router({
       path:'/home/NewsInfo/:id',
       name:'NewsInfo',
       component:NewsInfo
+    },
+    {
+      path:'/home/photolist',
+      name:'PhotoList',
+      component:PhotoList
+    },
+    {
+      path:'/home/photoinfo/:id',
+      name:'PhotoInfo',
+      component:PhotoInfo
     },
 
   ],
