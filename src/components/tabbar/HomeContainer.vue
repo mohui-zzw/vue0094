@@ -1,10 +1,6 @@
 <template>
   <div>
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="item in lunbotuList" :key="item.id">
-        <img :src="item.img" alt />
-      </mt-swipe-item>
-    </mt-swipe>
+    <swiper :lunbotuList='lunbotuList' :isfull="true"></swiper>
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <router-link to="/home/newslist">
@@ -19,7 +15,7 @@
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <router-link to="#">
+        <router-link to="/home/goodslist">
           <img src="../../images/menu3.png" alt="">
           <div class="mui-media-body">商品购买</div>
         </router-link>
@@ -47,12 +43,16 @@
 </template>
 <script>
 import { Toast } from "mint-ui";
+import swiper from '@/components/subcomponents/swiper'
 export default {
   name: "HomeContainer",
   data() {
     return {
       lunbotuList: []
     };
+  },
+  components:{
+    swiper
   },
   created() {
     this.getLunbotu();
@@ -74,15 +74,7 @@ export default {
 };
 </script>
 <style scoped lang='less'>
-.mint-swipe {
-  height: 200px;
-  .mint-swipe-item {
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
+
 .mui-grid-9{
     background-color: #fff;
     border: 0;

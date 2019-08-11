@@ -1,6 +1,10 @@
 <template>
   <div id="app" class="app-container">
-    <mt-header fixed title="苏宁易购"></mt-header>
+    <mt-header fixed title="苏宁易购">
+      <span slot="left" @click="goBack" v-show="flag">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>
 	<transition>
 		<router-view/>
 	</transition>
@@ -15,7 +19,7 @@
 			<span class="mui-tab-label">会员</span>
 		</router-link>
 		<router-link class="mui-tab-item-lib" to="/shopcar">
-			<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">0</span></span>
+			<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{$store.getters.getAllCount}}</span></span>
 			<span class="mui-tab-label">购物车</span>
 		</router-link>
 		<router-link class="mui-tab-item-lib" to="/search">
@@ -28,7 +32,31 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      flag:false
+    }
+  },
+  created() {
+    this.flag=this.$route.path==='/home'?false:true
+  },
+  methods: {
+    goBack(){
+      // 点击后退
+      this.$router.go(-1)
+    }
+  },
+  watch: {
+    "$route.path":function(newVal){
+      console.log(this)
+      if(newVal==='/home'){
+        this.flag=false
+      }else{
+        this.flag=true
+      }
+    }
+  },
 }
 </script>
 
